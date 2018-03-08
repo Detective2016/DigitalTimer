@@ -1,5 +1,6 @@
-# DigitalTimer
+## DigitalTimer
 
+# Part A
 a. What line(s) of code do you need to change to make the LED blink (like, at all)? <br />
 Added one line to change from using pin 13 to pin 9, the existing loop function that sets the pin to high/low actually provides the blinking. <br />
 b. What line(s) of code do you need to change to change the rate of blinking? <br />
@@ -38,7 +39,15 @@ void loop() {<br />
     digitalWrite(ledPin, LOW);<br />
   }<br />
 }<br />
+<br />
 3. Fading LEDs on and off using Arduino What about those "breathing" LEDs on (old) Macs? <br /> The fading from bright to dim and back is done using pulse-width modulation (PWM). In essence, the LED is toggled on and off very rapidly, say 1,000 times a second, faster than your eye can follow. The percentage of time the LED is on (the duty) controls the perceived brightness. To control an LED using PWM, you'll have to connect it to one of the pins that support PWM output —-- which are 4, 5, 6, 9, 10, 11, and 12 on the Arduino.<br />
+a) Which line(s) of code do you need to modify to correspond with your LED pin?<br />
+LED pin has be be set to one of 4, 5, 6, 9, 10, 11, and 12. Since the code already got the pin setup for pin 9, fading of the LED works automatically with the current code and circuit. <br />
+b) How would you change the rate of fading?<br />
+I increased the delay to make the rate of fading slower, and decreased the delay to make the rate of fading faster. <br />
+c) (Extra) Since the human eye doesn't see increases in brightness linearly and the diode brightness is also nonlinear with voltage, how could you change the code to make the light appear to fade linearly?<br />
+Currently the fading increments is set at 5 points. We can decrease increments, which adds more levels of brightness that helps the light appear to fade linearly. <br />
+
 
 
 
