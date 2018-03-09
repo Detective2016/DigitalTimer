@@ -51,7 +51,7 @@ Currently the fading increments is set at 5 points. We can decrease increments, 
 
 ## Part B
 
-1a)
+1a) <br />
 int sensorPin = A0;    // select the input pin for the potentiometer <br />
 int ledPin = 9;      // select the pin for the LED <br />
 int sensorValue = 0;  // variable to store the value coming from the sensor <br />
