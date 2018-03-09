@@ -49,5 +49,27 @@ c) (Extra) Since the human eye doesn't see increases in brightness linearly and 
 Currently the fading increments is set at 5 points. We can decrease increments, which adds more levels of brightness that helps the light appear to fade linearly. <br />
 
 
+## Part B
 
+int sensorPin = A0;    // select the input pin for the potentiometer <br />
+int ledPin = 9;      // select the pin for the LED <br />
+int sensorValue = 0;  // variable to store the value coming from the sensor <br />
+
+void setup() { <br />
+  // declare the ledPin as an OUTPUT: <br />
+  pinMode(ledPin, OUTPUT); <br />
+} <br />
+
+void loop() { <br />
+  // read the value from the sensor: <br />
+  sensorValue = analogRead(sensorPin); <br />
+  // turn the ledPin on <br />
+  digitalWrite(ledPin, HIGH); <br />
+  // stop the program for <sensorValue> milliseconds: <br />
+  delay(sensorValue); <br />
+  // turn the ledPin off: <br />
+  digitalWrite(ledPin, LOW); <br />
+  // stop the program for for <sensorValue> milliseconds: <br />
+  delay(sensorValue); <br />
+} <br />
 
