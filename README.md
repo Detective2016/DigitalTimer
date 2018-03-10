@@ -111,7 +111,8 @@ sensorValue: 284 <br />
 sensorValue: 279 <br />
 sensorValue: 268 <br />
 sensorValue: 263 <br />
-
+ <br />
 b. What kind of relationship does the resistance have as a function of the force applied? (e.g., linear?) <br />
 There seems to be logarithmic relationship between resistance and force applied. When there's no force applied, the sensor reads ~260ish, and when there's force applied, the sensor reads 1023. <br />
+ <br />
 **c. Can you change the LED fading code values so that you get the full range of output voltages from using your FSR?<br />
