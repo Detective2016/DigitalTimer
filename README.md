@@ -131,37 +131,37 @@ There seems to be logarithmic relationship between resistance and force applied.
  After adjusting fadeValue to one instead of five, there are more values within the range, but the overall range didn't change. <br />
 
 ```c
-int sensorPin = A0;    // select the input pin for the potentiometer <br />
-int ledPin = 9;      // select the pin for the LED <br />
-int sensorValue = 0;  // variable to store the value coming from the sensor <br />
- <br />
-void setup() { <br />
-  // declare the ledPin as an OUTPUT: <br />
-  Serial.begin(9600); <br />
-  pinMode(ledPin, OUTPUT); <br />
+int sensorPin = A0;    // select the input pin for the potentiometer
+int ledPin = 9;      // select the pin for the LED
+int sensorValue = 0;  // variable to store the value coming from the sensor
+
+void setup() {
+  // declare the ledPin as an OUTPUT:
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
   Serial.println("Hello World");
-} <br />
- <br />
-void loop() { <br />
-  // read the value from the sensor: <br />
-  sensorValue = analogRead(sensorPin); <br />
-  Serial.print("sensorValue: "); <br />
-  Serial.println(sensorValue); <br />
-  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 1) { <br />
-    // sets the value (range from 0 to 255): <br />
-    analogWrite(ledPin, fadeValue); <br />
-    // wait for 30 milliseconds to see the dimming effect <br />
-    delay(30); <br />
-  } <br />
- <br />
-  // fade out from max to min in increments of 5 points: <br />
-  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 1) { <br />
-    // sets the value (range from 0 to 255): <br />
-    analogWrite(ledPin, fadeValue); <br />
-    // wait for 30 milliseconds to see the dimming effect <br />
-    delay(30); <br />
-  } <br />
-} <br />
+}
+
+void loop() {
+  // read the value from the sensor:
+  sensorValue = analogRead(sensorPin);
+  Serial.print("sensorValue: ");
+  Serial.println(sensorValue);
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 1) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPin, fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+
+  // fade out from max to min in increments of 5 points:
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 1) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPin, fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+}
 ```
 
 ## Part C
