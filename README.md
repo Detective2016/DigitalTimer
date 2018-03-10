@@ -84,7 +84,7 @@ void loop() {
 }
 ```
 
-2.
+2. <br />
 a. What resistance values do you see from your force sensor? <br />
 ```
 sensorValue: 260
