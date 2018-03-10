@@ -129,6 +129,7 @@ There seems to be logarithmic relationship between resistance and force applied.
  <br />
 **c. Can you change the LED fading code values so that you get the full range of output voltages from using your FSR?<br />
  After adjusting fadeValue to one instead of five, there are more values within the range, but the overall range didn't change. <br />
+
 ```c
 int sensorPin = A0;    // select the input pin for the potentiometer <br />
 int ledPin = 9;      // select the pin for the LED <br />
