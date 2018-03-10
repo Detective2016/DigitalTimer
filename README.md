@@ -165,3 +165,12 @@ void loop() {
 ```
 
 ## Part C
+a. What voltage level do you need to power your display? b. What voltage level do you need to power the display backlight? <br />
+
+b. What was one mistake you made when wiring up the display? How did you fix it? <br />
+
+c. What line of code do you need to change to make it flash your name instead of "Hello World"? <br />
+
+d. Include a copy of your Lowly Multimeter code in your lab write-up. <br />
+
+e. Include a copy of your FSR thumb wrestling code in your lab write-up. <br />
