@@ -11,6 +11,7 @@ The resistor and connection to ground are added to prevent LED from burning out.
  <br />
 a. Which lines do you need to modify to correspond with your button and LED pins? <br />
 line 27, change the ledPin to 9 <br />
+ <br />
 b. Modify the code or the circuit so that the LED lights only while the button is depressed. Include your code in your lab write-up. <br />
 const int buttonPin = 2;     // the number of the pushbutton pin<br />
 const int ledPin =  9;      // the number of the LED pin<br />
@@ -41,13 +42,16 @@ void loop() {<br />
 }<br />
 <br />
 3. Fading LEDs on and off using Arduino What about those "breathing" LEDs on (old) Macs? <br /> The fading from bright to dim and back is done using pulse-width modulation (PWM). In essence, the LED is toggled on and off very rapidly, say 1,000 times a second, faster than your eye can follow. The percentage of time the LED is on (the duty) controls the perceived brightness. To control an LED using PWM, you'll have to connect it to one of the pins that support PWM output —-- which are 4, 5, 6, 9, 10, 11, and 12 on the Arduino.<br />
+ <br />
 a) Which line(s) of code do you need to modify to correspond with your LED pin?<br />
 LED pin has be be set to one of 4, 5, 6, 9, 10, 11, and 12. Since the code already got the pin setup for pin 9, fading of the LED works automatically with the current code and circuit. <br />
+ <br />
 b) How would you change the rate of fading?<br />
 I increased the delay to make the rate of fading slower, and decreased the delay to make the rate of fading faster. <br />
+ <br />
 c) (Extra) Since the human eye doesn't see increases in brightness linearly and the diode brightness is also nonlinear with voltage, how could you change the code to make the light appear to fade linearly?<br />
 Currently the fading increments is set at 5 points. We can decrease increments, which adds more levels of brightness that helps the light appear to fade linearly. <br />
-
+ <br />
 
 ## Part B
 
@@ -55,12 +59,12 @@ Currently the fading increments is set at 5 points. We can decrease increments, 
 int sensorPin = A0;    // select the input pin for the potentiometer <br />
 int ledPin = 9;      // select the pin for the LED <br />
 int sensorValue = 0;  // variable to store the value coming from the sensor <br />
-
+ <br />
 void setup() { <br />
   // declare the ledPin as an OUTPUT: <br />
   pinMode(ledPin, OUTPUT); <br />
 } <br />
-
+ <br />
 void loop() { <br />
   // read the value from the sensor: <br />
   sensorValue = analogRead(sensorPin); <br />
@@ -73,7 +77,7 @@ void loop() { <br />
   // stop the program for for <sensorValue> milliseconds: <br />
   delay(sensorValue); <br />
 } <br />
-
+ <br />
 2. <br />
 a. What resistance values do you see from your force sensor? <br />
 sensorValue: 260 <br />
@@ -116,3 +120,35 @@ b. What kind of relationship does the resistance have as a function of the force
 There seems to be logarithmic relationship between resistance and force applied. When there's no force applied, the sensor reads ~260ish, and when there's force applied, the sensor reads 1023. <br />
  <br />
 **c. Can you change the LED fading code values so that you get the full range of output voltages from using your FSR?<br />
+ After adjusting fadeValue to one instead of five, there are more values within the range, but the overall range didn't change. <br />
+int sensorPin = A0;    // select the input pin for the potentiometer <br />
+int ledPin = 9;      // select the pin for the LED <br />
+int sensorValue = 0;  // variable to store the value coming from the sensor <br />
+ <br />
+void setup() { <br />
+  // declare the ledPin as an OUTPUT: <br />
+  Serial.begin(9600); <br />
+  pinMode(ledPin, OUTPUT); <br />
+  Serial.println("Hello World");
+} <br />
+ <br />
+void loop() { <br />
+  // read the value from the sensor: <br />
+  sensorValue = analogRead(sensorPin); <br />
+  Serial.print("sensorValue: "); <br />
+  Serial.println(sensorValue); <br />
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 1) { <br />
+    // sets the value (range from 0 to 255): <br />
+    analogWrite(ledPin, fadeValue); <br />
+    // wait for 30 milliseconds to see the dimming effect <br />
+    delay(30); <br />
+  } <br />
+ <br />
+  // fade out from max to min in increments of 5 points: <br />
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 1) { <br />
+    // sets the value (range from 0 to 255): <br />
+    analogWrite(ledPin, fadeValue); <br />
+    // wait for 30 milliseconds to see the dimming effect <br />
+    delay(30); <br />
+  } <br />
+} <br />
