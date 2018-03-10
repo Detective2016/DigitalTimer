@@ -16,33 +16,33 @@ line 27, change the ledPin to 9 <br />
  <br />
 b. Modify the code or the circuit so that the LED lights only while the button is depressed. Include your code in your lab write-up. <br />
 ```c
-const int buttonPin = 2;     // the number of the pushbutton pin<br />
-const int ledPin =  9;      // the number of the LED pin<br />
+const int buttonPin = 2;     // the number of the pushbutton pin
+const int ledPin =  9;      // the number of the LED pin
 
 // variables will change:
-int buttonState = 0;         // variable for reading the pushbutton status<br />
+int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() {
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:<br />
-  pinMode(buttonPin, INPUT);<br />
-}<br />
-<br />
-void loop() {<br />
-  // read the state of the pushbutton value:<br />
-  buttonState = digitalRead(buttonPin);<br />
-  Serial.print(78);<br />
-<br />
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:<br />
-  if (buttonState == HIGH) {<br />
-    // turn LED on:<br />
-    digitalWrite(ledPin, HIGH);<br />
-  } else {<br />
-    // turn LED off:<br />
-    digitalWrite(ledPin, LOW);<br />
-  }<br />
-}<br />
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+  Serial.print(78);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn LED on:
+    digitalWrite(ledPin, HIGH);
+  } else {
+    // turn LED off:
+    digitalWrite(ledPin, LOW);
+  }
+}
 ```
 <br />
 3. Fading LEDs on and off using Arduino What about those "breathing" LEDs on (old) Macs? <br /> The fading from bright to dim and back is done using pulse-width modulation (PWM). In essence, the LED is toggled on and off very rapidly, say 1,000 times a second, faster than your eye can follow. The percentage of time the LED is on (the duty) controls the perceived brightness. To control an LED using PWM, you'll have to connect it to one of the pins that support PWM output —-- which are 4, 5, 6, 9, 10, 11, and 12 on the Arduino.<br />
@@ -60,71 +60,75 @@ Currently the fading increments is set at 5 points. We can decrease increments, 
 ## Part B
 
 1a) <br />
-int sensorPin = A0;    // select the input pin for the potentiometer <br />
-int ledPin = 9;      // select the pin for the LED <br />
-int sensorValue = 0;  // variable to store the value coming from the sensor <br />
- <br />
-void setup() { <br />
-  // declare the ledPin as an OUTPUT: <br />
-  pinMode(ledPin, OUTPUT); <br />
-} <br />
- <br />
-void loop() { <br />
-  // read the value from the sensor: <br />
-  sensorValue = analogRead(sensorPin); <br />
-  // turn the ledPin on <br />
-  digitalWrite(ledPin, HIGH); <br />
-  // stop the program for <sensorValue> milliseconds: <br />
-  delay(sensorValue); <br />
-  // turn the ledPin off: <br />
-  digitalWrite(ledPin, LOW); <br />
-  // stop the program for for <sensorValue> milliseconds: <br />
-  delay(sensorValue); <br />
-} <br />
- <br />
-2. <br />
+```c
+int sensorPin = A0;    // select the input pin for the potentiometer
+int ledPin = 9;      // select the pin for the LED
+int sensorValue = 0;  // variable to store the value coming from the sensor
+
+void setup() {
+  // declare the ledPin as an OUTPUT:
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // read the value from the sensor:
+  sensorValue = analogRead(sensorPin);
+  // turn the ledPin on
+  digitalWrite(ledPin, HIGH);
+  // stop the program for <sensorValue> milliseconds:
+  delay(sensorValue);
+  // turn the ledPin off:
+  digitalWrite(ledPin, LOW);
+  // stop the program for for <sensorValue> milliseconds:
+  delay(sensorValue);
+}
+```
+
+2.
 a. What resistance values do you see from your force sensor? <br />
-sensorValue: 260 <br />
-sensorValue: 261 <br />
-sensorValue: 258 <br />
-sensorValue: 261 <br />
-sensorValue: 268 <br />
-sensorValue: 278 <br />
-sensorValue: 753 <br />
-sensorValue: 1023 <br />
-sensorValue: 1023 <br />
-sensorValue: 1023 <br />
-sensorValue: 1023 <br />
-sensorValue: 1023 <br />
-sensorValue: 898 <br />
-sensorValue: 769 <br />
-sensorValue: 668 <br />
-sensorValue: 600 <br />
-sensorValue: 543 <br />
-sensorValue: 495 <br />
-sensorValue: 453 <br />
-sensorValue: 421 <br />
-sensorValue: 396 <br />
-sensorValue: 373 <br />
-sensorValue: 355 <br />
-sensorValue: 340 <br />
-sensorValue: 327 <br />
-sensorValue: 326 <br />
-sensorValue: 318 <br />
-sensorValue: 307 <br />
-sensorValue: 297 <br />
-sensorValue: 293 <br />
-sensorValue: 288 <br />
-sensorValue: 284 <br />
-sensorValue: 279 <br />
-sensorValue: 268 <br />
-sensorValue: 263 <br />
+```
+sensorValue: 260
+sensorValue: 261
+sensorValue: 258
+sensorValue: 261
+sensorValue: 268
+sensorValue: 278
+sensorValue: 753
+sensorValue: 1023
+sensorValue: 1023
+sensorValue: 1023
+sensorValue: 1023
+sensorValue: 1023
+sensorValue: 898
+sensorValue: 769
+sensorValue: 668
+sensorValue: 600
+sensorValue: 543
+sensorValue: 495
+sensorValue: 453
+sensorValue: 421
+sensorValue: 396
+sensorValue: 373
+sensorValue: 355
+sensorValue: 340
+sensorValue: 327
+sensorValue: 326
+sensorValue: 318
+sensorValue: 307
+sensorValue: 297
+sensorValue: 293
+sensorValue: 288
+sensorValue: 284
+sensorValue: 279
+sensorValue: 268
+sensorValue: 263
  <br />
 b. What kind of relationship does the resistance have as a function of the force applied? (e.g., linear?) <br />
 There seems to be logarithmic relationship between resistance and force applied. When there's no force applied, the sensor reads ~260ish, and when there's force applied, the sensor reads 1023. <br />
  <br />
 **c. Can you change the LED fading code values so that you get the full range of output voltages from using your FSR?<br />
  After adjusting fadeValue to one instead of five, there are more values within the range, but the overall range didn't change. <br />
+```c
 int sensorPin = A0;    // select the input pin for the potentiometer <br />
 int ledPin = 9;      // select the pin for the LED <br />
 int sensorValue = 0;  // variable to store the value coming from the sensor <br />
@@ -156,3 +160,6 @@ void loop() { <br />
     delay(30); <br />
   } <br />
 } <br />
+```
+
+## Part C
