@@ -122,6 +122,7 @@ sensorValue: 284
 sensorValue: 279
 sensorValue: 268
 sensorValue: 263
+```
  <br />
 b. What kind of relationship does the resistance have as a function of the force applied? (e.g., linear?) <br />
 There seems to be logarithmic relationship between resistance and force applied. When there's no force applied, the sensor reads ~260ish, and when there's force applied, the sensor reads 1023. <br />
