@@ -18,13 +18,13 @@ b. Modify the code or the circuit so that the LED lights only while the button i
 ```c
 const int buttonPin = 2;     // the number of the pushbutton pin<br />
 const int ledPin =  9;      // the number of the LED pin<br />
-<br />
+
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status<br />
-<br />
-void setup() {<br />
-  // initialize the LED pin as an output:<br />
-  pinMode(ledPin, OUTPUT);<br />
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
   // initialize the pushbutton pin as an input:<br />
   pinMode(buttonPin, INPUT);<br />
 }<br />
