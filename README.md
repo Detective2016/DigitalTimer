@@ -166,10 +166,36 @@ void loop() {
 
 ## Part C
 a. What voltage level do you need to power your display? b. What voltage level do you need to power the display backlight? <br />
-
+5V is necesssary to power the display, and 3V is sufficient to power the display backlight. <br />
 b. What was one mistake you made when wiring up the display? How did you fix it? <br />
-
+I forgot to wire the VDD on LCD to 5V, and therefore I don't see "hello, world!" displayed. I fixed this by adding a wire to connect VDD to 5V to make the text show up. <br />
 c. What line of code do you need to change to make it flash your name instead of "Hello World"? <br />
+By changing line 54, what's inside of *lcd.print("");*
+```c
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library by associating any needed LCD interface pin
+// with the arduino pin number it is connected to
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  lcd.print("Mei Mei");
+}
+
+void loop() {
+  // Turn off the display:
+  lcd.noDisplay();
+  delay(500);
+  // Turn on the display:
+  lcd.display();
+  delay(500);
+}
+```
 
 d. Include a copy of your Lowly Multimeter code in your lab write-up. <br />
 
