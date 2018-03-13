@@ -264,3 +264,61 @@ void loop() {
   delay(500);
 }
 ```
+## Part D
+a. Make a short video showing how your timer works, and what happens when time is up! <br />
+```c
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library by associating any needed LCD interface pin
+// with the arduino pin number it is connected to
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+int sensorPin = A0;
+int sensorValue = 0;
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = analogRead(sensorPin);
+
+  // give 10 seconds to input a time
+  for (int i = 100; i >= 0; i--) {
+    lcd.clear();
+    lcd.print("Set Timer...GO:");
+    sensorValue = analogRead(sensorPin);
+    lcd.setCursor(0, 1);
+    lcd.print(sensorValue);
+    delay(100);
+  }
+
+  // start the timer
+  for (int i = sensorValue; i >= 0; i--) {
+    lcd.clear();
+    lcd.print("Counting Down...");
+    lcd.setCursor(0, 1);
+    lcd.print(i);
+    delay(1000);
+
+    if (i == 0) {
+      timerReached();
+    }
+  }
+  
+}
+
+void timerReached() {
+  for (int i = 0; i < 5; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(500);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(500);
+  }
+}
+```
+b. Post a link to the completed lab report to the class Slack. <br />
